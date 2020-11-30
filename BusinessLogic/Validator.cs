@@ -12,20 +12,10 @@ namespace BusinessLogic
         /// <returns></returns>
         public static bool IsSsn(string ssn)
         {
-            if (ssn.Length == 9)
-            {
-                Regex pattern = new Regex(@"^\d{9}$");
+            
+            
+                Regex pattern = new Regex(@"^\d{3}-?\d{2}-?\d{4}$");
                 return pattern.IsMatch(ssn);
-            }
-            if (ssn.Length == 11)
-            {
-                Regex pattern = new Regex(@"^\d{ 3}-\d{ 2}-\d{ 4}$");
-                return pattern.IsMatch(ssn);
-            }
-            
-            
-            
-                return false;
 
             
         }

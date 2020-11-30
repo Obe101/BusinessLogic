@@ -15,7 +15,7 @@ namespace BusinessLogic
         {
             CourseName = courseName;
             InstructorName = instructorName;
-            NumberOfCredits = numberOfCredits;
+            
         }
 
         /// <summary>
@@ -58,7 +58,11 @@ namespace BusinessLogic
             get => numberOfCredits;
             set
             {
-                
+                if (value == 0)
+                {
+                    throw new ArgumentException($"{nameof(numberOfCredits)} should be more than 0");
+                }
+
                 if (value > 29)
                 {
                     throw new ArgumentException($"{nameof(numberOfCredits)} should not be more than 30");
